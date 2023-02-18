@@ -1,0 +1,4 @@
+node_modules/
+
+# Ignore generated index.html file
+dist/index.html
