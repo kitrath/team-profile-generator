@@ -18,7 +18,9 @@ function generateCard(employee) {
 }
 
 function renderGitHubLink(username) {
-    return `<p class="card-text">GitHub: <a href="https://github.com/${username}">${username}</a></p>`;
+    return `<p class="card-text">GitHub: 
+                <a href="https://github.com/${username}" target="_blank">${username}</a>
+            </p>`;
 }
 
 function renderEmail(email) {
