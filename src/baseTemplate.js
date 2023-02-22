@@ -1,6 +1,6 @@
-const generateCard = require('./generateCard');
+const generateCard = require('./employeeCard');
 
-function renderHMTL(data) {
+function renderHTML(data) {
     for (const item of data) {
         generateCard(item);
     }
