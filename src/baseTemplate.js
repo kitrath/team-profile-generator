@@ -1,9 +1,55 @@
+const fs = require("fs");
+
 const generateCard = require('./employeeCard');
 
 function renderHTML(data) {
-    for (const item of data) {
-        generateCard(item);
+    const html = `
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Team Profile</title>
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css">
+            <link rel="stylesheet" href="./style.css">
+        </head>
+        <body>
+            <header class="text-center py-1 bg-primary text-white mb-5">
+                <h1 class="text-white-50">Team Profile</h1>
+            </header>
+            <div class="container">
+            ${renderCards(data)}
+            </div>
+        </body>
+        </html> 
+    `;
+    // write html to '../dist/index.html'
+    fs.writeFileSync("../dist/index.html", html);
+    console.log("Team profile written to /dist/index.html...");
+}
+
+function renderCards(data) {
+    const len = data.length;
+    let cards = "";
+    for (let i = 0; i < len; i++) {
+        cards += i === 0 ? '<div class="row">' : '';
+        cards += generateCard(data[i]);
+        cards += isRowClose(i + 1, 3, len); 
     }
+    return cards;
+}
+
+
+function isRowClose(index, columns, length) {
+    let result = '';
+    if (index !== 0 && index % columns === 0 && index !== length) {
+        result += '</div><div class="row">';
+    }
+    if (index !== 0 && index === length) {
+        result += '</div>';
+    }
+    return result;
 }
 
 module.exports = renderHTML;
