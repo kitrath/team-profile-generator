@@ -34,7 +34,7 @@ function renderCards(data) {
     const len = data.length;
     let cards = "";
     for (let i = 0; i < len; i++) {
-        cards += i === 0 ? '<div class="row">' : '';
+        cards += i === 0 ? '<div class="row mb-4">' : '';
         cards += generateCard(data[i]);
         cards += isRowClose(i + 1, 3, len); 
     }
@@ -45,7 +45,7 @@ function renderCards(data) {
 function isRowClose(index, columns, length) {
     let result = '';
     if (index !== 0 && index % columns === 0 && index !== length) {
-        result += '</div><div class="row">';
+        result += '</div><div class="row mb-4">';
     }
     if (index !== 0 && index === length) {
         result += '</div>';
