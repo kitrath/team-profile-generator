@@ -38,7 +38,7 @@ function renderRoleSpecific(employee) {
     if (role === "Manager")
         return renderOfficeNumber(employee.officeNumber);
     if (role === "Engineer")
-        return renderGitHubLink(employee.getGitHub());
+        return renderGitHubLink(employee.getGithub());
     if (role === "Intern")
         return renderSchool(employee.getSchool());
 }

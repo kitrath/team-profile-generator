@@ -24,9 +24,10 @@ function renderHTML(data) {
         </body>
         </html> 
     `;
-    // write html to '../dist/index.html'
-    fs.writeFileSync("../dist/index.html", html);
-    console.log("Team profile written to /dist/index.html...");
+
+    fs.writeFileSync(__dirname + "/../dist/index.html", html);
+    console.log("\n");
+    console.log("Team profile written to " + __dirname + "/dist/index.html");
 }
 
 function renderCards(data) {
